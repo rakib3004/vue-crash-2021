@@ -1,7 +1,7 @@
 <template>
 <div class="container">
 <Header title="Trace Tacker" />
-<Tasks :tasks="tasks" />
+<Tasks  @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks" />
  </div>
 </template>
 
@@ -15,6 +15,22 @@ export default {
   components: {
     Header, 
     Tasks,
+  },
+
+  methods:{
+    deleteTask(id){
+      if(confirm('Are you sure?')){
+this.tasks = this.tasks.filter((task)=>
+ task.id !==id)
+      }
+
+    },
+
+    toggleReminder(id){
+this.tasks = this.tasks.map((task) => task.id===id? {...task, reminder: !task.reminder}: task
+)
+    },
+
   },
   data(){
     return{
@@ -33,13 +49,13 @@ export default {
     id: 2,
     text: 'Meeting at School',
     day: 'March 3rd at 1:30pm',
-    reminder:true,
+    reminder:false,
   },
     {
     id: 3,
     text: 'Food Shopping',
     day: 'March 2nd at 7:00pm',
-    reminder:false,
+    reminder:true,
   },
 
 
