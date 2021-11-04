@@ -1,13 +1,17 @@
 <template>
 <div class="container">
+<AddTask />
 <Header title="Trace Tacker" />
 <Tasks  @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks" />
+
  </div>
 </template>
 
 <script>
 import Header from './components/Header'
 import Tasks from './components/Tasks'
+import AddTask from './components/AddTask'
+
 
 
 export default {
@@ -15,6 +19,7 @@ export default {
   components: {
     Header, 
     Tasks,
+    AddTask,
   },
 
   methods:{
