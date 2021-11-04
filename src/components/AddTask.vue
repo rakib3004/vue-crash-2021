@@ -33,7 +33,7 @@ data(){
     }
 },
 methods:{
-    onsubmit(e){
+    onSubmit(e){
         e.preventDefault()
 
         if(!this.text){
@@ -46,7 +46,7 @@ methods:{
             day: this.day,
             reminder:this.reminder,
         }
-        console.log(newTask)
+        this.$emit('add-task', newTask)
 
         this.text=''
         this.day=''
