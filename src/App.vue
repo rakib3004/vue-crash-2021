@@ -1,18 +1,22 @@
 <template>
- <h1>Hello World</h1>
+<div class="container">
+<Header title="Trace Tacker" />
+ </div>
 </template>
 
 <script>
+import Header from './components/Header'
 
 export default {
   name: 'App',
   components: {
-    
+    Header
   }
 }
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 
 *{
   box-sizing: border-box;
